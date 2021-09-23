@@ -1,0 +1,16 @@
+.ng2-pdf-viewer-container{
+    margin: 50px 500px;
+    border:  2px solid red;
+    
+}
+div.pdf-viewer{
+    margin: 0px auto !important;
+    }
+    .ng2-pdf-viewer-container {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }

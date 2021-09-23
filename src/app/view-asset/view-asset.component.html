@@ -1,0 +1,22 @@
+
+<div class="container shadow p-3 mb-5 bg-white rounded my-3 w-75"  *ngIf="retrieveType==='image/jpeg'|| retrieveType==='image/png'">
+    <button class="btn btn-outline-primary" (click)='listview()'>Back</button>
+    <div class="row align-items-center my-5 border-dark">
+        <img [src]="retrievedImage" class="w-50 mx-auto"  style="height:auto;" > 
+    </div>
+</div>
+
+<div class="container rounded p-3 mb-5 my-3 w-75 " *ngIf="retrieveType!='image/jpeg' && retrieveType!='image/png'" style='position: relative; height: 100%;'>
+<button class="btn btn-outline-primary" (click)='listview()'>Back</button>
+<pdf-viewer class="text-center my-auto mx-auto" [src]="retrievedPdf"
+ [show-all]="true"
+[autoresize]="true"
+[original-size]='true'
+[fit-to-page]='true'
+[render-text]='false'
+[zoom]='0.8'
+[show-borders]='true'
+
+style="display: block; height: 400px;"
+  ></pdf-viewer>
+</div>

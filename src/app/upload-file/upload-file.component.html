@@ -1,0 +1,53 @@
+<div class="container row my-4">
+    <div class="col-md-12 ">
+        <h1 class="font-monospace m-xl-2">Upload File</h1>
+        <div class="alert alert-info mt-5 mb-3 w-50" role="alert" *ngIf ='!alertMessage'>
+            <h5 class="" >Please Save the File with Proper Name</h5>
+        </div>
+    </div>
+</div>
+<div class="alert alert-success" role="alert" *ngIf ='alertMessage'>
+    <h4 class="alert-heading">Uploaded !!</h4>
+    <p>Aww yeah, you successfully Uploaded your File.</p>
+    <hr class="btn-outline-dark">
+    <p class="mb-0"><em>Important: </em>Kindly Note Down/Take a Snap of your ID: <b>{{imageId}}</b>, Its Unique and You may need it for future 
+    reference of your Asset</p>
+</div>
+<div class="container row mt-5">
+    <div class="col-md-6">
+        <input type="file" (change)="onFileChanged($event)">
+
+    </div>
+    <div class="col-md-6 mt-1">
+        <input type="button" (click)="onUpload()" value="upload">
+    </div>
+</div>
+<hr />
+<div class="container row my-2">
+    <div class="col-md-12 text-danger">
+        <div *ngIf=message><b>{{message}}</b></div>
+    </div>
+</div>
+<div class="container">
+    <button class="btn btn-outline-primary" (click)="list()">Back</button>
+</div>
+
+<!--
+<div class="container row">
+    <div class="col-md-6">
+        <input type="number" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageId"
+            name="name" />
+    </div>
+    <div class="col-md-6">
+        <input type="button" (click)="getImage()" value="Get Image">
+
+    </div>
+</div>
+
+<div class="container row">
+    <div class="row-cols-md-2">
+        
+            <img [src]="retrievedImage"  width="75%">
+    </div>
+</div>
+-->

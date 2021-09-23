@@ -1,0 +1,50 @@
+<div class="container row my-4">
+    <div class="col-md-12">
+        <h1>Update File</h1>
+        <h5 class="mt-5">Please Save the File with Proper Name</h5>
+    </div>
+</div>
+<div class="alert alert-success" role="alert" *ngIf ='alertMessage'>
+    <h4 class="alert-heading">Updated !!</h4>
+    <p>Aww yeah, you successfully Updated your File haivng ID: <em>{{id}}</em></p>
+    <hr class="btn-outline-dark">
+    <p class="mb-0"><em>wishes: </em>Congrats !!</p>
+</div>
+<div class="container row mt-5">
+    <div class="col-md-6">
+        <input type="file" (change)="onFileChanged($event)">
+
+    </div>
+    <div class="col-md-6 mt-3">
+        <input type="button" (click)="onUpload()" value="upload">
+    </div>
+</div>
+<hr />
+<div class="container row my-2">
+    <div class="col-md-12 text-danger">
+        <div *ngIf=message><b>{{message}}</b></div>
+    </div>
+</div>
+<div class="container">
+    <button class="btn btn-outline-primary" (click)="list()">Back</button>
+</div>
+
+<!--
+<div class="container row">
+    <div class="col-md-6">
+        <input type="number" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageId"
+            name="name" />
+    </div>
+    <div class="col-md-6">
+        <input type="button" (click)="getImage()" value="Get Image">
+
+    </div>
+</div>
+
+<div class="container row">
+    <div class="row-cols-md-2">
+        
+            <img [src]="retrievedImage"  width="75%">
+    </div>
+</div>
+-->
