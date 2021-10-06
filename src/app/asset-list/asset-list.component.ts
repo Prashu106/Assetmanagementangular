@@ -25,6 +25,8 @@ export class AssetListComponent implements OnInit {
   retrievedImage: string;
   base64Data: any;
   grid:boolean=false;
+  retrieveType: any;
+  retrievedPdf: string;
   constructor(private assetService:AssetService,private route:Router,private httpClient:HttpClient) { }
 
   ngOnInit(): void {
@@ -34,12 +36,29 @@ export class AssetListComponent implements OnInit {
    getAsset(){
     this.assetService.viewImage().subscribe(
       data => {
-        this.imagemodel =data
-  
+        this.imagemodel = data
+        console.log(data.statusText)
       }
     );
-
 }
+
+// getImage() {
+//   //Make a call to Sprinf Boot to get the Image Bytes.
+//   this.assetService.getImageById(this.imagemodel.body.)
+//     .subscribe(
+//       res => {
+//         this.retrieveResonse = res;
+//         this.retrieveType=this.retrieveResonse.type
+//         this.base64Data = this.retrieveResonse.picByte;
+//         // this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+//         this.retrievedImage = 'http://127.0.0.1:8887/'+this.retrieveResonse.name
+//         this.retrievedPdf = 'http://127.0.0.1:8887/'+this.retrieveResonse.name
+//         console.log(this.retrieveResonse.size)
+//         console.log(this.retrieveResonse)
+//         console.log(this.retrieveResonse.name)
+//       }
+//     );
+// }
 
   update(id:number){
     this.route.navigate(['update-asset',id]);

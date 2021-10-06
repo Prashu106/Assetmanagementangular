@@ -16,6 +16,9 @@ export class AssetService {
   public viewImage():Observable<HttpResponse<ImageModel[]>>{
     return this.httpclient.get<any>(this.baseUrl+"get")
   }
+  public getImageById(id:number):Observable<HttpResponse<ImageModel>>{
+    return this.httpclient.get<any>(this.baseUrl+"get/"+id)
+  }
  
   public addImage(uploadImageData:any):Observable<HttpResponse<ImageModel>>{
     return this.httpclient.post<ImageModel>(this.baseUrl+"upload",uploadImageData, { observe: 'response' })

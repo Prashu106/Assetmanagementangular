@@ -8,3 +8,7 @@
 table th {
     width: auto !important;
 }
+td{
+    
+    word-wrap: break-word;
+}

@@ -13,6 +13,7 @@ import { ViewAssetComponent } from './view-asset/view-asset.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer'
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer'
     AppRoutingModule,
     FormsModule,
     Ng2SearchPipeModule,
-    PdfViewerModule
+    PdfViewerModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

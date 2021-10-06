@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssetService } from '../asset.service';
+
 
 @Component({
   selector: 'app-view-asset',
@@ -17,7 +18,10 @@ export class ViewAssetComponent implements OnInit {
   retrievedImage: string;
   retrievedPdf: string;
   base64Data: any;
-  constructor(private route:Router,private activeRoute:ActivatedRoute,private httpClient:HttpClient) { }
+  retrievedDoc: string;
+  retrievedItem: string;
+  constructor(private route:Router,private activeRoute:ActivatedRoute,private assetService:AssetService,
+    ) { }
 
   ngOnInit(): void {
     this.id=this.activeRoute.snapshot.params['id']
@@ -25,15 +29,25 @@ export class ViewAssetComponent implements OnInit {
   }
   getImage() {
     //Make a call to Sprinf Boot to get the Image Bytes.
-    this.httpClient.get('http://localhost:8085/get/' + this.id)
+    this.assetService.getImageById(this.id)
       .subscribe(
         res => {
           this.retrieveResonse = res;
           this.retrieveType=this.retrieveResonse.type
-          this.base64Data = this.retrieveResonse.picByte;
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-          this.retrievedPdf = 'data:;base64,' + this.base64Data;
-          console.log(this.retrieveResonse.size)
+          if(this.retrieveType != 'application/pdf' ) {
+            this.retrievedImage = "assets/"+this.retrieveResonse.name
+          }else{
+            this.retrievedPdf =   "assets/"+this.retrieveResonse.name
+          }
+          // this.retrievedItem = "assets/"+this.retrieveResonse.name
+          // this.base64Data = this.retrieveResonse.picByte;
+          // this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          this.retrievedPdf =   "assets/"+this.retrieveResonse.name
+          this.retrievedDoc = 'assets/'+this.retrieveResonse.name
+
+          console.log(this.retrieveResonse.location)
+          console.log(this.retrieveResonse)
+          console.log(this.retrieveResonse.name)
         }
       );
   }
